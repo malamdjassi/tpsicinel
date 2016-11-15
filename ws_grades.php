@@ -1,4 +1,10 @@
 <?php
+
+// header('Access-Control-Allow-Origin: *'); 
+// header('Access-Control-Allow-Headers: *'); 
+// header('Access-Control-Allow-Methods: GET, POST, PUT');
+header('Content-Type: application/json');
+
 $datarequest = array();
 
 if ((count($_REQUEST) > 0))
@@ -24,6 +30,13 @@ case 'c' : {
 }
 case 'r' : {
 	$res = readTable($table, null);
+	$query = $datarequest['q'];
+	$ar = [];
+	foreach ($res as $val) {
+		if (preg_match('#^'.$query.'#', $val['nome']) === 1)
+	$ar[] = $val;
+	}
+	$res = $ar;
 	break;
 }
 case 'u' : {
