@@ -52,11 +52,24 @@ function go2Fire(){
 debugger;
     var jsondata = $("form").serializeObject();
 
-    var tpsicinel = firebase.database().ref('tpsicinel');
+    var tpsicinel = firebase.database().ref('sondagensMundial');
 
     var coisas = tpsicinel.push(jsondata);
 
         console.log(coisas);
+}
+
+function lerdata() {
+    var sondagens = firebase.database().ref('sondagensMundial');
+    sondagens.on('value', function(snapshot) {
+        //   updateStarCount(postElement, snapshot.val());
+        $.each(snapshot.val(), function(index, pais){
+//        var pais = this;
+        console.log(this);
+            $('#tb_body').append("<tr><td>"+ pais.nome + 
+                    "</td><td>" + pais.votacao + "</td></tr>"); 
+        });
+    });
 }
 
 

@@ -7,17 +7,15 @@
     </head>
     <body>
         <div class="container">
-            <form class="form-inline">
-              <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
-              </div>
-              <div class="form-group">
-                <label for="morada">Vota&ccedil;&otilde;es</label>
-                <input type="text" class="form-control" id="votacao" name="votacao" placeholder="Nr Votos">
-              </div>
-            </form>
-              <button class="btn btn-default" onclick="go2Fire()" >Submeter</button>
+                <table id="tb_paises" name="tb_paises">
+                        <tr>
+                        <th>Nome<th>
+                        <th>Votos<th>
+                        </tr>
+                        <tbody id="tb_body">
+                        </tbody>
+                </table>
+              <button class="btn btn-default" onclick="lerdata()" >Ler</button>
        </div>
         <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
         <script>
