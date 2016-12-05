@@ -1,3 +1,4 @@
+/*
 function loadNotifications(){
     var tpsicinel = firebase.database().ref('tpsicinel');
 /*    tpsicinel.on("value", function(snapshot) {
@@ -5,7 +6,7 @@ function loadNotifications(){
     }, function (error) {
         console.log("Error: " + error.code);
     });
-*/
+
     tpsicinel.on("child_added", function(data, prevChildKey) {
         var novoAluno = data.val();
         console.log(novoAluno);
@@ -24,8 +25,12 @@ function loadNotifications(){
         });
     });
 };
+*/
 
 
+/*
+ * Acrescemta a funcao de converter de campo para propriedade
+ */
 $.fn.serializeObject = function()
 {
     var o = {};
@@ -54,6 +59,8 @@ debugger;
         console.log(coisas);
 }
 
+
+/*
 function notifyMe() {
   // Let's check if the browser supports notifications
   if (!("Notification" in window)) {
@@ -79,4 +86,4 @@ function notifyMe() {
   // At last, if the user has denied notifications, and you 
   // want to be respectful there is no need to bother them any more.
 }
-
+*/

@@ -7,36 +7,29 @@
     </head>
     <body>
         <div class="container">
-            <form>
-
+            <form class="form-inline">
               <div class="form-group">
                 <label for="nome">Nome</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
               </div>
               <div class="form-group">
-                <label for="morada">Morada</label>
+                <label for="morada">Vota&ccedil;&otilde;es</label>
                 <input type="text" class="form-control" id="morada" name="morada" placeholder="morada">
-              </div>
-              <div class="form-group">
-                <label for="contacto">Contacto</label>
-                <input type="text" class="form-control" id="contacto" name="contacto" placeholder="contacto">
               </div>
             </form>
               <button class="btn btn-default" onclick="go2Fire()" >Submeter</button>
        </div>
-
         <script src="https://www.gstatic.com/firebasejs/3.6.2/firebase.js"></script>
         <script>
           // Initialize Firebase
           var config = {
-            apiKey: "AIzaSyCxva9T10ZqAsqnx0eiPbBsqtSVTMWUMvc",
-            authDomain: "turma-4c0c7.firebaseapp.com",
-            databaseURL: "https://turma-4c0c7.firebaseio.com",
-            storageBucket: "turma-4c0c7.appspot.com",
-            messagingSenderId: "59327171590"
+            apiKey: "AIzaSyBFAaxwyvqsCKEOCcSHzkSYC04JIw6wRPE",
+            authDomain: "sondagensmundial.firebaseapp.com",
+            databaseURL: "https://sondagensmundial.firebaseio.com",
+            storageBucket: "sondagensmundial.appspot.com",
+            messagingSenderId: "751997788183"
           };
           firebase.initializeApp(config);
-               loadNotifications();
         </script>
     </body>
-</html>
+    </html>
