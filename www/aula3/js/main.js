@@ -29,7 +29,7 @@ function loadNotifications(){
 
 
 /*
- * Acrescemta a funcao de converter de campo para propriedade
+ * Acrescenta a funcao de converter de campo para propriedade
  */
 $.fn.serializeObject = function()
 {
@@ -62,16 +62,42 @@ debugger;
 function lerdata() {
     var sondagens = firebase.database().ref('sondagensMundial');
     sondagens.on('value', function(snapshot) {
+        $('#tb_body').html('');
         //   updateStarCount(postElement, snapshot.val());
         $.each(snapshot.val(), function(index, pais){
 //        var pais = this;
         console.log(this);
-            $('#tb_body').append("<tr><td>"+ pais.nome + 
-                    "</td><td>" + pais.votacao + "</td></tr>"); 
+        $('#tb_body').append("<tr><td><input name=\"nome\" value=\""+ pais.nome + "\" /></td><td><input name=\"votacao\" value=\""+ pais.votacao+ "\" /></td>"
+ + "<td><input type=\"hidden\" value=\""+index+"\" /></td>"+
+ "<td><button class=\"btn btn-default\" onclick=\"update(this)\" >Update</button></td></tr>"); 
         });
     });
 }
 
+function update(button) {
+    var tr = $(button).closest("tr");
+    var inps = tr.find("input");
+
+    updateFire(inps[2].value, inps[1].value, inps[0].value);
+    debugger;
+}
+
+function updateFire(index, val, name) {
+    console.log(index + "," + val + "," + name);
+    var sondagens = firebase.database().ref('sondagensMundial');
+
+    var newobj = {
+        nome : name,
+        votacao : val};
+
+    var sond = {};
+    sond["/sondagensMundial/" + index + "/"] = newobj;
+        
+ 
+    var res = firebase.database().ref().update(sond);
+
+    console.log(res);
+}
 
 /*
 function notifyMe() {

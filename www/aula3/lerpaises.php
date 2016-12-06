@@ -9,8 +9,8 @@
         <div class="container">
                 <table id="tb_paises" name="tb_paises">
                         <tr>
-                        <th>Nome<th>
-                        <th>Votos<th>
+                        <th>Nome</th>
+                        <th>Votos</th>
                         </tr>
                         <tbody id="tb_body">
                         </tbody>
